@@ -1,0 +1,178 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Valentine-themed mobile interactive choice flow (bad bad vs pookie)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create a cohesive mobile-first pink Valentine theme applied consistently across layout, typography, buttons, and dialogs.",
+      "acceptanceCriteria": [
+        "On a phone-sized viewport, the layout is clearly mobile-first (no horizontal scrolling, readable text, appropriately sized touch targets).",
+        "The UI uses a consistent pink-forward Valentine aesthetic (e.g., soft pink background gradients, heart motifs, playful rounded shapes) without relying on blue/purple as primary colors.",
+        "All interactive elements (buttons/dialogs) share consistent styling (radius, shadows, hover/press states)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Add global Valentine theme tokens (pink-forward CSS variables), base typography defaults, and mobile-first layout helpers; include background styling that supports the Valentine look without introducing blue/purple as primary colors."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with Valentine-specific animations/utilities (e.g., pop-in, gentle bounce/press, floating) and ensure the design system supports consistent rounded shapes/shadows for buttons and dialogs."
+        },
+        {
+          "path": "frontend/src/components/valentine/ValentineLayout.tsx",
+          "operation": "create",
+          "description": "Create a reusable mobile-first layout wrapper that applies the consistent Valentine visual theme (spacing, max widths, background layering, decorative accents)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Wire the app to use the Valentine layout wrapper as the single-page container for the entire experience (no multi-page routing)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement the opening screen with heading \"What are you?\" and two prominent pop-up style options \"bad bad\" and \"pookie\".",
+      "acceptanceCriteria": [
+        "The first view shows the heading \"What are you?\".",
+        "Two selectable options are shown with labels exactly \"bad bad\" and \"pookie\".",
+        "The options are presented in a pop-up/dialog-like style (e.g., centered card/modal appearance) suitable for mobile."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/valentine/ChoiceCard.tsx",
+          "operation": "create",
+          "description": "Create the opening centered card/modal-like UI that renders the heading text exactly \"What are you?\" and two prominent actions labeled exactly \"bad bad\" and \"pookie\"; use shadcn-ui primitives (e.g., Card/Button if available) to achieve consistent dialog-like styling. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Render the opening ChoiceCard as the initial view and connect option selections to in-app state transitions (single page)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "On selecting \"bad bad\", show a dialog with \"no you're pookie\" and a go-back action to return to the initial choice screen.",
+      "acceptanceCriteria": [
+        "Tapping \"bad bad\" displays a dialog/popup with the message exactly \"no you're pookie\".",
+        "The dialog includes a \"go back\" action that returns the user to the initial \"What are you?\" choice screen.",
+        "The user can repeat the flow multiple times without needing a page refresh."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/valentine/BadBadDialog.tsx",
+          "operation": "create",
+          "description": "Implement a modal/dialog that displays the text exactly \"no you're pookie\" and provides a clear go-back action; use the shadcn-ui Dialog component for accessible modal behavior and consistent styling. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add state handling to open/close the BadBadDialog when \"bad bad\" is selected and return the user to the initial ChoiceCard when go-back is pressed (repeatable without refresh)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "On selecting \"pookie\", show a romantic Valentine message screen/dialog with the required sentiment emphasized and readable on mobile.",
+      "acceptanceCriteria": [
+        "Tapping \"pookie\" shows the Valentine message as the main content.",
+        "The message appears in English and includes all the requested phrases/sentiment (amazing person, makes me smile, highlight of my day, special, love you).",
+        "The message screen/dialog is styled romantically (e.g., heart accents) and remains readable on small screens."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/valentine/PookieMessageDialog.tsx",
+          "operation": "create",
+          "description": "Create a romantic modal/dialog (or full-screen mobile modal) that presents the Valentine message as primary content, styled for readability with heart accents; use shadcn-ui Dialog (and optional Card) for consistent dialog presentation. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add state handling to open the PookieMessageDialog when \"pookie\" is selected and allow returning to the initial ChoiceCard (keeping the experience single-page)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add lightweight playful animations (pop-in dialogs, tap feedback, floating heart confetti) with smooth mobile performance.",
+      "acceptanceCriteria": [
+        "Dialogs/options animate in with a subtle pop-in effect.",
+        "Buttons provide clear pressed/tap feedback.",
+        "Any decorative animation does not cause noticeable jank on a typical mobile device (maintains smooth interactions)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/valentine/HeartConfetti.tsx",
+          "operation": "create",
+          "description": "Implement a lightweight, GPU-friendly heart confetti overlay that can be triggered on selection, using minimal DOM nodes and CSS animations to keep mobile performance smooth."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Add/adjust keyframes and animation utilities for subtle pop-in, gentle bounce/press feedback, and floating hearts; ensure durations/easings are tuned for smooth mobile interactions."
+        },
+        {
+          "path": "frontend/src/components/valentine/ChoiceCard.tsx",
+          "operation": "modify",
+          "description": "Apply tap/press feedback styles and subtle entrance animation to the opening choice UI, keeping touch targets large and interactions responsive."
+        },
+        {
+          "path": "frontend/src/components/valentine/BadBadDialog.tsx",
+          "operation": "modify",
+          "description": "Apply subtle pop-in animation on open and consistent button press feedback within the dialog; keep motion gentle and performant. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/valentine/PookieMessageDialog.tsx",
+          "operation": "modify",
+          "description": "Apply subtle pop-in animation on open and optionally trigger HeartConfetti in a lightweight way; ensure the message remains readable and motion does not distract. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Trigger HeartConfetti on option selections (especially \"pookie\") and ensure animation state resets cleanly so the user can repeat the flow multiple times."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Add and visibly use the required generated static images from frontend/public/assets/generated without backend involvement.",
+      "acceptanceCriteria": [
+        "The generated images exist under frontend/public/assets/generated with the requested filenames.",
+        "The UI visibly uses the generated images (e.g., background/hero decoration and small heart stickers).",
+        "No backend calls are used to serve or transform these images."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/valentine-bg.dim_1080x1920.png",
+          "operation": "create",
+          "description": "Add the generated image asset exactly at frontend/public/assets/generated/valentine-bg.dim_1080x1920.png for use as the Valentine-themed background (served statically)."
+        },
+        {
+          "path": "frontend/public/assets/generated/heart-stickers.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated image asset exactly at frontend/public/assets/generated/heart-stickers.dim_512x512.png for decorative heart sticker accents (served statically)."
+        },
+        {
+          "path": "frontend/public/assets/generated/cupid-arrow.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated image asset exactly at frontend/public/assets/generated/cupid-arrow.dim_512x512.png for a cupid-arrow decoration (served statically)."
+        },
+        {
+          "path": "frontend/src/components/valentine/ValentineLayout.tsx",
+          "operation": "modify",
+          "description": "Wire the static images into the UI as visible decorations: use frontend/public/assets/generated/valentine-bg.dim_1080x1920.png as the background layer and place frontend/public/assets/generated/heart-stickers.dim_512x512.png and frontend/public/assets/generated/cupid-arrow.dim_512x512.png as small accent images in the layout."
+        },
+        {
+          "path": "frontend/src/components/valentine/PookieMessageDialog.tsx",
+          "operation": "modify",
+          "description": "Use the sticker/arrow images (frontend/public/assets/generated/heart-stickers.dim_512x512.png and frontend/public/assets/generated/cupid-arrow.dim_512x512.png) to romantically frame/emphasize the message while maintaining readability on small screens."
+        }
+      ]
+    }
+  ]
+}

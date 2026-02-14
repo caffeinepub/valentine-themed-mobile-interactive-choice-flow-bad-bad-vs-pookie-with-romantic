@@ -1,0 +1,130 @@
+{
+  "kind": "build_request",
+  "title": "Valentine-themed mobile interactive choice flow (bad bad vs pookie) with romantic message",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a mobile-first, Valentine-themed single-page experience with a coherent cute/funny/romantic visual theme centered on pink (avoid blue/purple). Apply the theme consistently across typography, spacing, buttons, and dialogs.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "create a mobile website pink color for valentine for my girl cute, funny website."
+        ]
+      },
+      "acceptanceCriteria": [
+        "On a phone-sized viewport, the layout is clearly mobile-first (no horizontal scrolling, readable text, appropriately sized touch targets).",
+        "The UI uses a consistent pink-forward Valentine aesthetic (e.g., soft pink background gradients, heart motifs, playful rounded shapes) without relying on blue/purple as primary colors.",
+        "All interactive elements (buttons/dialogs) share consistent styling (radius, shadows, hover/press states)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement the opening screen with the heading text exactly: \"What are you?\" and present two prominent, pop-up style options labeled exactly: \"bad bad\" and \"pookie\".",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "on opening site, to give 2 option popping, 'bad bad' and other 'pookie'\nheading be like What are you?"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The first view shows the heading \"What are you?\".",
+        "Two selectable options are shown with labels exactly \"bad bad\" and \"pookie\".",
+        "The options are presented in a pop-up/dialog-like style (e.g., centered card/modal appearance) suitable for mobile."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "When the user selects \"bad bad\", show a pop-up/dialog message with the text exactly: \"no you're pookie\" and provide a clear action to go back to the previous choice screen.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "If she selects bad bad, then pops up, no you're pookie. give option to go back."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Tapping \"bad bad\" displays a dialog/popup with the message exactly \"no you're pookie\".",
+        "The dialog includes a \"go back\" action that returns the user to the initial \"What are you?\" choice screen.",
+        "The user can repeat the flow multiple times without needing a page refresh."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "When the user selects \"pookie\", show a sweet Valentine message screen/dialog containing the following sentiment in English: \"you're the most amazing person in my life, seeing you makes me smile and you're highlight of my day, you're special, love you.\" Ensure the message is readable and visually emphasized as the primary content.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Now when you select pookie, comes a sweet valentine message saying you're the most amazing person in my life, seeing you makes me smile and you're highlight of my day, you're special, love you."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Tapping \"pookie\" shows the Valentine message as the main content.",
+        "The message appears in English and includes all the requested phrases/sentiment (amazing person, makes me smile, highlight of my day, special, love you).",
+        "The message screen/dialog is styled romantically (e.g., heart accents) and remains readable on small screens."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Add lightweight, playful interactions/animations appropriate for a romantic funny/cute site (e.g., subtle button bounce on tap, gentle pop-in for dialogs, small floating heart confetti on selection) while keeping performance smooth on mobile.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "i want to make it interactive and funny and cute and romantic."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Dialogs/options animate in with a subtle pop-in effect.",
+        "Buttons provide clear pressed/tap feedback.",
+        "Any decorative animation does not cause noticeable jank on a typical mobile device (maintains smooth interactions)."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Include required generated static images in the app at the specified paths and use them in the UI (served from frontend/public/assets/generated; do not fetch through the backend).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The generated images exist under frontend/public/assets/generated with the requested filenames.",
+        "The UI visibly uses the generated images (e.g., background/hero decoration and small heart stickers).",
+        "No backend calls are used to serve or transform these images."
+      ]
+    }
+  ],
+  "constraints": [
+    "Frontend must not modify files under immutable paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
+    "Backend must remain a single Motoko actor; however, this feature should be implementable without backend changes."
+  ],
+  "nonGoals": [
+    "Do not add authentication (Internet Identity) or user accounts.",
+    "Do not add persistence, databases, or storing responses on-chain.",
+    "Do not add real-time features (websockets/chat), payments, or external API integrations.",
+    "Do not create multi-page routing unless necessary; keep the experience simple and focused on the described interaction flow."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Valentine mobile background illustration, soft pink gradient with subtle hearts pattern (valentine-bg.dim_1080x1920.png)",
+      "Cute heart sticker set, 6 small varied heart doodles, transparent background (heart-stickers.dim_512x512.png)",
+      "Small cupid arrow doodle, transparent background (cupid-arrow.dim_512x512.png)"
+    ],
+    "edits": []
+  }
+}

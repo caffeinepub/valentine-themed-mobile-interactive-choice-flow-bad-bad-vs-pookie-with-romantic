@@ -1,0 +1,66 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-14T08:37:27.150Z",
+  "summary": "Implements the core single-page Valentine flow (choice card -> dialogs) with pink-themed styling, animations, and decorative assets referenced from /assets/generated. However, required generated image files are not shown as added, the exact Valentine message text requirement is not met due to wording differences, and authentication/Internet Identity wiring was introduced despite being a non-goal/constraint.",
+  "missing_requirements": [
+    {
+      "id": "REQ-4",
+      "requirement": "When the user selects \"pookie\", show a sweet Valentine message containing the following sentiment in English: \"you're the most amazing person in my life, seeing you makes me smile and you're highlight of my day, you're special, love you.\"",
+      "reason": "The implemented message is split into multiple sentences with different capitalization and wording; specifically it uses \"you're the highlight of my day\" instead of the requested \"you're highlight of my day\" and does not present the sentiment as the provided text.",
+      "evidence": [
+        "frontend/src/components/valentine/PookieMessageDialog.tsx"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "requirement": "Include required generated static images under frontend/public/assets/generated with the requested filenames and use them in the UI.",
+      "reason": "The UI references the generated image paths, but the diff summary does not show the actual image files being added under frontend/public/assets/generated, so their presence at the specified paths is not evidenced.",
+      "evidence": [
+        "frontend/src/components/valentine/ValentineLayout.tsx",
+        "frontend/src/components/valentine/ChoiceCard.tsx",
+        "frontend/src/components/valentine/BadBadDialog.tsx",
+        "frontend/src/components/valentine/PookieMessageDialog.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Internet Identity / authentication provider and identity-aware actor logic added to the frontend.",
+      "reason": "BuildRequest explicitly lists authentication/user accounts as a non-goal and also states immutable frontend hook paths must not be modified; the diff adds/uses Internet Identity provider and related hooks anyway.",
+      "evidence": [
+        "frontend/src/main.tsx",
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Backend actor file added (empty Motoko actor).",
+      "reason": "BuildRequest states the feature should be implementable without backend changes; adding a backend actor file is not requested for this purely-frontend interaction.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "confidence": 0.74,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/valentine/BadBadDialog.tsx",
+    "frontend/src/components/valentine/ChoiceCard.tsx",
+    "frontend/src/components/valentine/HeartConfetti.tsx",
+    "frontend/src/components/valentine/PookieMessageDialog.tsx",
+    "frontend/src/components/valentine/ValentineLayout.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

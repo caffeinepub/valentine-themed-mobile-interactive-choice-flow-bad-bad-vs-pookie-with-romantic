@@ -1,0 +1,11 @@
+{
+  "frontend/src/index.css": "Global styles with Valentine-themed OKLCH color tokens (pink-forward palette), custom fonts (Quicksand, Pacifico), and utility classes for gradients and shadows.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with Valentine theme fonts, pink color palette, custom border radii, shadows, and playful animations (pop-in, float, heart-beat, confetti-fall).",
+  "frontend/src/App.tsx": "Main app component managing view state (choice/bad-bad/pookie) and coordinating the interactive Valentine flow with confetti effects.",
+  "frontend/src/components/valentine/ValentineLayout.tsx": "Layout wrapper providing Valentine-themed background, floating heart decorations, gradient overlay, and footer with attribution.",
+  "frontend/src/components/valentine/ChoiceCard.tsx": "Opening screen card displaying \"What are you?\" heading with two prominent buttons (\"bad bad\" and \"pookie\") and decorative sticker images.",
+  "frontend/src/components/valentine/BadBadDialog.tsx": "Modal dialog showing \"no you're pookie\" message with a go-back button and animated heart decorations.",
+  "frontend/src/components/valentine/PookieMessageDialog.tsx": "Full romantic message dialog displaying the sweet Valentine message with heart decorations, stickers, and close functionality.",
+  "frontend/src/components/valentine/HeartConfetti.tsx": "Animated heart confetti overlay component that generates and animates falling hearts across the screen.",
+  "frontend/src/hooks/useQueries.ts": "Placeholder file for React Query hooks (empty as no backend queries are needed for this feature)."
+}

@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Create a cute, funny, romantic Valentine-themed pink mobile website with an interactive choice flow leading to a sweet message.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Valentine mobile background illustration, soft pink gradient with subtle hearts pattern (valentine-bg.dim_1080x1920.png)\n- Cute heart sticker set, 6 small varied heart doodles, transparent background (heart-stickers.dim_512x512.png)\n- Small cupid arrow doodle, transparent background (cupid-arrow.dim_512x512.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-mobile-first-valentine-themed-single-page-experience-with-a-coherent-cute-funny-romantic-visual-theme-centered-on-pink-avoid-blue-purple-apply-the-theme-consistently-across-typography-spacing-buttons-and-dialogs",
+      "title": "Create a mobile-first, Valentine-themed single-page experience with a coherent cute/funny/romantic visual theme centered on pink (avoid blue/purple). Apply the theme consistently across typography, spacing, buttons, and dialogs.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-opening-screen-with-the-heading-text-exactly-what-are-you-and-present-two-prominent-pop-up-style-options-labeled-exactly-bad-bad-and-pookie",
+      "title": "Implement the opening screen with the heading text exactly: \"What are you?\" and present two prominent, pop-up style options labeled exactly: \"bad bad\" and \"pookie\".",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-when-the-user-selects-bad-bad-show-a-pop-up-dialog-message-with-the-text-exactly-no-you-re-pookie-and-provide-a-clear-action-to-go-back-to-the-previous-choice-screen",
+      "title": "When the user selects \"bad bad\", show a pop-up/dialog message with the text exactly: \"no you're pookie\" and provide a clear action to go back to the previous choice screen.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-when-the-user-selects-pookie-show-a-sweet-valentine-message-screen-dialog-containing-the-following-sentiment-in-english-you-re-the-most-amazing-person-in-my-life-seeing-you-makes-me-smile-and-you-re-highlight-of-my-day-you-re-special-love-you-ensure-the-message-is-readable-and-visually-emphasized-as-the-primary-content",
+      "title": "When the user selects \"pookie\", show a sweet Valentine message screen/dialog containing the following sentiment in English: \"you're the most amazing person in my life, seeing you makes me smile and you're highlight of my day, you're special, love you.\" Ensure the message is readable and visually emphasized as the primary content.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-lightweight-playful-interactions-animations-appropriate-for-a-romantic-funny-cute-site-e-g-subtle-button-bounce-on-tap-gentle-pop-in-for-dialogs-small-floating-heart-confetti-on-selection-while-keeping-performance-smooth-on-mobile",
+      "title": "Add lightweight, playful interactions/animations appropriate for a romantic funny/cute site (e.g., subtle button bounce on tap, gentle pop-in for dialogs, small floating heart confetti on selection) while keeping performance smooth on mobile.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-include-required-generated-static-images-in-the-app-at-the-specified-paths-and-use-them-in-the-ui-served-from-frontend-public-assets-generated-do-not-fetch-through-the-backend",
+      "title": "Include required generated static images in the app at the specified paths and use them in the UI (served from frontend/public/assets/generated; do not fetch through the backend).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Valentine pink mobile website theme (cute/funny/romantic styling for mobile)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Landing screen with heading 'What are you?' and two pop-up style options: 'bad bad' and 'pookie'",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "If 'bad bad' selected: show pop-up message 'no you're pookie' with an option to go back",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "If 'pookie' selected: show sweet Valentine message (amazing person, makes me smile, highlight of my day, special, love you)",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Valentine-themed mobile interactive choice flow (bad bad vs pookie) with romantic message",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
